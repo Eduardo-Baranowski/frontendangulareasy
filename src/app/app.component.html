@@ -4,63 +4,114 @@
   </ol>
 </nav>
 <div class="container">
-  <div class="card add-car">
-      <h5 class="card-header">Adicionar Programador</h5>
-      <div class="card-body">
-          <form id="add-form" (ngSubmit)="f.form.valid && saveUser(f)" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" [(ngModel)]="user.name" id="name" name="name" #name="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
-                <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+  <div class="card add-user">
+    <h5 class="card-header">Adicionar Programador</h5>
+    <div class="card-body">
+      <form id="add-form" (ngSubmit)="f.form.valid && saveUser(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="user.name" id="name" name="name" #name="ngModel" required class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
+          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
 
-                </div>
-            </div>
-
-            <div class="form-group">
-              <label for="name">Email</label>
-              <input type="text" [(ngModel)]="user.email" id="email" name="email" #email="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Digite o email">
-              <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-              </div>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label for="name">Telefone</label>
-            <input type="text" [(ngModel)]="user.telefone" id="telefone" name="telefone" #telefone="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && telefone.invalid }" placeholder="Digite o telefone">
-            <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
-            </div>
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input type="text" [(ngModel)]="user.email" id="email" name="email" #email="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+            placeholder="Digite o email">
+          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Telefone</label>
+          <input type="text" [(ngModel)]="user.telefone" id="telefone" name="telefone" #telefone="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && telefone.invalid }"
+            placeholder="Digite o telefone">
+          <div *ngIf="f.submitted && telefone.invalid" class="invalid-feedback">
+          </div>
         </div>
 
         <div class="form-group">
           <label for="name">Linkedin</label>
-          <input type="text" [(ngModel)]="user.linkedin" id="linkedin" name="linkedin" #linkedin="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && linkedin.invalid }" placeholder="Digite o linkedin">
+          <input type="text" [(ngModel)]="user.linkedin" id="linkedin" name="linkedin" #linkedin="ngModel"
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && linkedin.invalid }"
+            placeholder="Digite o linkedin">
           <div *ngIf="f.submitted && linkedin.invalid" class="invalid-feedback">
           </div>
-      </div>
-
-      <div class="form-group">
-        <label for="name">Cidade</label>
-        <input type="text" [(ngModel)]="user.cidade" id="cidade" name="cidade" #cidade="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && cidade.invalid }" placeholder="Digite o cidade">
-        <div *ngIf="f.submitted && cidade.invalid" class="invalid-feedback">
         </div>
-    </div>
 
-    <div class="form-group">
-      <label for="name">Portfolio</label>
-      <input type="text" [(ngModel)]="user.portfolio" id="portfolio" name="portfolio" #portfolio="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && portfolio.invalid }" placeholder="Digite o portfolio">
-      <div *ngIf="f.submitted && portfolio.invalid" class="invalid-feedback">
-      </div>
+        <div class="form-group">
+          <label for="name">Cidade</label>
+          <input type="text" [(ngModel)]="user.cidade" id="cidade" name="cidade" #cidade="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && cidade.invalid }"
+            placeholder="Digite o cidade">
+          <div *ngIf="f.submitted && cidade.invalid" class="invalid-feedback">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Portfolio</label>
+          <input type="text" [(ngModel)]="user.portfolio" id="portfolio" name="portfolio" #portfolio="ngModel"
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && portfolio.invalid }"
+            placeholder="Digite o portfolio">
+          <div *ngIf="f.submitted && portfolio.invalid" class="invalid-feedback">
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="name">Disponibilidade</label>
+          <ng-select [(ngModel)]="user.disponibilidade" id="disponibilidade" name="disponibilidade"
+            #disponibilidade="ngModel" class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && disponibilidade.invalid }"
+            placeholder="Escolha sua disponibilidade">
+            <ng-option *ngFor="let disponibilidade of disponibilidades" [value]="disponibilidade.name">
+              {{disponibilidade.name}}</ng-option>
+          </ng-select>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Horário</label>
+          <ng-select [(ngModel)]="user.horario" id="horario" name="horario" #horario="ngModel" class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && horario.invalid }" placeholder="Escolha seu horário">
+            <ng-option *ngFor="let horario of horarios" [value]="horario.name">{{horario.name}}</ng-option>
+          </ng-select>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="name">Salário</label>
+          <input type="number" [(ngModel)]="user.salario" id="salario" name="salario" #salario="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && salario.invalid }"
+            placeholder="Digite o salario">
+          <div *ngIf="f.submitted && salario.invalid" class="invalid-feedback">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Ionic</label>
+          <br>
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="user.ionic" id="ionic" name="ionic"
+            #ionic="ngModel">
+            <mat-radio-button value="0">0</mat-radio-button>
+            <mat-radio-button value="1">1</mat-radio-button>
+            <mat-radio-button value="2">2</mat-radio-button>
+            <mat-radio-button value="3">3</mat-radio-button>
+            <mat-radio-button value="4">4</mat-radio-button>
+            <mat-radio-button value="5">5</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary btn-add-user">Salvar</button>
+        <button type="reset" class="btn btn-secondary btn-add-user" (click)="cleanForm(f)">Cancelar</button>
+      </form>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="name">Salário</label>
-    <input type="text" [(ngModel)]="user.salario" id="salario" name="salario" #salario="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && salario.invalid }" placeholder="Digite o salario">
-    <div *ngIf="f.submitted && salario.invalid" class="invalid-feedback">
-    </div>
-</div>
-
-            <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
-            <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
-          </form>
-      </div>
-    </div>
 </div>

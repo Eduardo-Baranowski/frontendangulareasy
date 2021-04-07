@@ -6,5 +6,8 @@ export interface User {
   linkedin: string;
   cidade: string;
   portfolio: string;
-  salario: string;
+  disponibilidade: string;
+  horario: string;
+  salario: number;
+  ionic: number;
 }
