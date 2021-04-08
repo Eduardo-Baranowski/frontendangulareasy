@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card list-car">
+    <h5 class="card-header">Lista de usuários</h5>
+    <div class="card-body">
+      <table class="table-responsive table-striped table-bordered ">
+          <thead class="thead-dark">
+            <tr>
+              <!--<th scope="col">#</th>-->
+              <th scope="col">Nome</th>
+              <th scope="col">email</th>
+              <th scope="col">Horário</th>
+              <th scope="col">Disponibilidade</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td scope="row">{{user.name}}</td>
+              <td scope="row">{{user.email}}</td>
+              <td scope="row">{{user.horario}}</td>
+              <td scope="row">{{user.disponibilidade}}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" (click)="updateUser(user)">Editar</button>
+                <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteUser(user)">Deletar</button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+

@@ -2,19 +2,28 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { User } from './models/user';
+import { Router } from '@angular/router';
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 import { NgForm } from '@angular/forms';
+import {FormControl} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
+
+
 
   user = {} as User;
 
   constructor(private userService: UserService) { }
+
+
 
   selectedDispIds = [];
 
